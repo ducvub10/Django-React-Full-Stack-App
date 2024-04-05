@@ -1,12 +1,11 @@
 import axios from 'axios';
 import {ACCESS_TOKEN} from "./constants";
 
+const apiUrl = "/choreo-apis/djangoreactproject/backend/rest-api-be2/v1.0"
+
 // **interceptor: intercept any request + add any correct headers so don't have to do it manually many times.**
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL //import env variable of localhost and set it to baseURL
-
-
-
+    baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : apiUrl, //use the .env file to set the api url
 })
 
 api.interceptors.request.use(
